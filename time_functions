@@ -1,4 +1,5 @@
 import time
+import datetime
 
 # get current epoch time (type of result is float)
 print(time.time())  # 1554917871.219191
@@ -8,6 +9,7 @@ print(int(time.mktime(time.strptime('2000-01-01 12:34:00', '%Y-%m-%d %H:%M:%S'))
 
 # convert human datetime to epoch time (type of result is str)
 print(time.strftime("%a, %d %b %Y %H:%M:%S +0000", time.localtime(time.time())))  # 'Wed, 10 Apr 2019 20:41:27 +0000'
+print(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))  # '2019-04-10 20:45:00'
 
 # Helping articles
 # https://www.epochconverter.com/
