@@ -1,0 +1,35 @@
+import datetime
+import time
+from apscheduler.schedulers.background import BackgroundScheduler
+
+
+def timed_job():
+    cur_datetime = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    print('Background:', cur_datetime)  # '2019-04-10 20:45:00'
+
+
+if __name__ == '__main__':
+    scheduler = BackgroundScheduler()
+    scheduler.add_job(timed_job, 'interval', seconds=1, id='timed_job')
+    scheduler.start()
+
+    try:
+        # This is here to simulate application activity (which keeps the main thread alive).
+        while True:
+            cur_datetime = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            print('Main:', cur_datetime)  # '2019-04-10 20:45:00'
+            time.sleep(2)
+    except (KeyboardInterrupt, SystemExit):
+        scheduler.shutdown()
+
+# ********* RESULTS ********* #
+# Main: 2019-04-10 21:14:48
+# Background: 2019-04-10 21:14:49
+# Background: 2019-04-10 21:14:50
+# Main: 2019-04-10 21:14:50
+# Background: 2019-04-10 21:14:51
+# Background: 2019-04-10 21:14:52
+# Main: 2019-04-10 21:14:52
+# Background: 2019-04-10 21:14:53
+# Background: 2019-04-10 21:14:54
+# ....
