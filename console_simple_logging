@@ -1,0 +1,13 @@
+import logging
+import sys
+import os
+
+logging.basicConfig(level=logging.DEBUG,
+                    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+LOGGER = logging.getLogger()
+
+if __name__ == '__main__':
+    LOGGER.debug('sys.argv[0] is %s', sys.argv[0])
+    LOGGER.info('sys.executable is %s', sys.executable)
+    LOGGER.warning('os.getcwd is %s', os.getcwd())
+    LOGGER.error("The app has run")
