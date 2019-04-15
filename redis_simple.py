@@ -2,6 +2,7 @@
 redis-py - The Python interface to the Redis key-value store.
 
 https://github.com/andymccurdy/redis-py
+http://devacademy.ru/posts/vvedenie-v-redis-py/
 """
 
 import redis
