@@ -4,7 +4,7 @@ from apscheduler.schedulers.asyncio import AsyncIOScheduler
 
 
 def timed_job():
-    cur_datetime = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    cur_datetime = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     print('Async:', cur_datetime)  # '2019-04-10 20:45:00'
 
 
